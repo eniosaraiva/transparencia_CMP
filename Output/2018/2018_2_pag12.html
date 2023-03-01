@@ -1,0 +1,386 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><link href="App_Themes/CMParnamirim/StyleSheet.css" type="text/css" rel="stylesheet" /><title>
+	Portal da Transparência
+</title><link href="App_Themes/Default/StyleSheet.css" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+        .bodyInvert {
+            -webkit-filter: invert(100%);
+            filter: progid:DXImageTransform.Microsoft.BasicImage(invert='1');
+        }
+
+        .style1 {
+            width: 100%;
+        }
+
+        body {
+            background-image: url(bgimage.jpg);
+        }
+    </style>
+    <script src="jquery-1.6.1.min.js"></script>
+    <script>
+
+        function createCookie(name, value, days) { if (days) { var date = new Date(); date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); var expires = "; expires=" + date.toGMTString(); } else var expires = ""; document.cookie = name + "=" + value + expires + "; path=/"; } function readCookie(name) { var nameEQ = name + "="; var ca = document.cookie.split(";"); for (var i = 0; i < ca.length; i++) { var c = ca[i]; while (c.charAt(0) == " ") c = c.substring(1, c.length); if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length); } return null; }
+
+
+        var currFFZoom = 1;
+        var currIEZoom = 100;
+
+        function plus() {
+            //alert('sad');
+            var step = 0.10;
+            currFFZoom += step;
+            $('body').css('MozTransform', 'scale(' + currFFZoom + ')');
+
+            createCookie('currFFZoom', currFFZoom, 1)
+
+            var stepie = 10;
+            currIEZoom += stepie;
+            $('body').css('zoom', ' ' + currIEZoom + '%');
+
+            createCookie('currIEZoom', currIEZoom, 1)
+
+        };
+        function minus() {
+            //alert('sad');
+            var step = 0.10;
+            currFFZoom -= step;
+            $('body').css('MozTransform', 'scale(' + currFFZoom + ')');
+            createCookie('currFFZoom', currFFZoom, 1)
+
+            var stepie = 10;
+            currIEZoom -= stepie;
+            $('body').css('zoom', ' ' + currIEZoom + '%');
+            createCookie('currIEZoom', currIEZoom, 1)
+        };
+
+        function initZoom() {
+            //alert('sad');
+            if (!isNaN(readCookie('currFFZoom'))) { currFFZoom = parseFloat(readCookie('currFFZoom')); }
+            if (!isNaN(readCookie('currIEZoom'))) { currIEZoom = parseFloat(readCookie('currIEZoom')); }
+
+            $('body').css('MozTransform', 'scale(' + currFFZoom + ')');
+            $('body').css('zoom', ' ' + currIEZoom + '%');
+        };
+
+        function initContraste() {
+            //alert('sad');
+            document.getElementsByTagName('body')[0].className = readCookie('currContrast');
+        };
+
+        function setContraste() {
+            //alert('sad');
+            if (document.getElementsByTagName('body')[0].className != '') {
+                document.getElementsByTagName('body')[0].className = '';
+            }
+            else {
+                document.getElementsByTagName('body')[0].className = 'bodyInvert';
+            }
+            createCookie('currContrast', document.getElementsByTagName('body')[0].className, 1)
+        };
+
+    </script>
+<link href="App_Themes/CMParnamirim/StyleSheet.css" type="text/css" rel="stylesheet" /></head>
+<body>
+
+    
+
+    <script language="javascript">initZoom(); initContraste();</script>
+
+    <form method="post" action="./leiacessoinf.aspx" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="E0486018" />
+<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="BCHrWq9h4jL2fgYVbZLMwzZ9pcFy9k5ekCvQ7/7Nq9Wd2UcJsEbIKvqTCXhsr82UoY/hKdkJGmICzXW69xnMX9xagGuwqMP2VPPtSpguHcLDrFU+deUuWRGqnv3t43zZ0qB+5mprDwksWCPQtveEVjdeOAl8xKIDfRskGdHtgdJtzjY8bUb17jemOnCxZT/xCnLuKu94J9UNfZisdGKACitLYgMpkiTa+xgukU238lx7sSt0+EifXSY+CUH7cem/nRJtWRZdk3VIQNp2zjvDyYSkdSIkLvPkrtTgqCb99bP3Dx8Rnki0nmZkdcg+W0q6zQYILjRAbre90GAkT0Y+61Nd1dPYWhobGyROJj5Yu/5C6s8DGnVQmojqu0k9/yg260Cuz7TtBgYfcCvyKPvlxiz7X/rMWjHbQAIb7sYK2saTAa1ZS6H4iNLSyVeZ8q++FU2lnhlrP8jOU4Fqw77VWKUcXHDPN6f7AbkNB/aNNE+JDWqTYPbP7WIQYhpSyVKLTHUY3d8OUoPzAOYFJ+2+8A==" />
+        <div style="padding: 5px; width: 100%; margin: 0 auto 0 auto;">
+            <div style="width: 100%; text-align: center;">
+                <div class="topo">
+                    <table cellspacing="1" class="style1">
+                        <tr>
+                            <td align="right" style="padding-right: 10px" class="lnkTopo">
+                                <!--
+                            <a id="lnkComoUsar" class="lnkTopo" href="comousar.aspx">Como Usar</a>&nbsp;|&nbsp;<a id="lnkGlossário" class="lnkTopo" href="glossario.aspx">Glossário</a>&nbsp;|&nbsp;<a id="HyperLink1" class="lnkTopo" href="faleconosco.aspx">Fale Conosco</a>
+                            -->
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <table align="center" class="conteudo">
+                <tr>
+                    <td class="mnuVert" valign="top" style="border-right: 1px solid #cccccc">
+                        <p align="right">
+                            <a href="#" id="minusBtn" title="Reduzir tamanho da fonte" onclick="minus()">A-</a>&nbsp;			
+                            <a href="#" id="minusBtn" style="font-size: 14px;" title="Ampliar tamanho da fonte" onclick="plus()">A+</a><!-- &nbsp;&nbsp;&nbsp;
+<a href="#" title="Ativar/desativar alto contraste" onclick="javascript:setContraste();"><img src="images/invert.png" width="18"/></a> -->
+                        </p>
+                        
+<table cellspacing="1" width="100%" cellpadding="0">
+    <tr>
+        <td id="ucMenuVert1_mnuVert" class="lnkMenuVert"><div class="listaMenuVert"><a href="default.aspx">Início</a></div>
+<div class="listaMenuVert"><a href="licitacoes.aspx">Licitações</a></div>
+<div class="listaMenuVert"><a href="contratos.aspx">Contratos</a></div>
+<div class="listaMenuVert"><a href="arp.aspx">Ata de Registro de Preço</a></div>
+<div class="listaMenuVert"><a href="relexigibilidades.aspx">Listagem de Exigibilidades</a></div>
+<div class="listaMenuVert"><a href="arquivos.aspx?id=balanco">Balanço Geral</a></div>
+<div class="listaMenuVert"><a href="arquivos.aspx?id=orcamento">Orçamento</a></div>
+<div class="listaMenuVert"><a href="arquivos.aspx?id=leis">Legislação</a></div>
+<div class="listaMenuVert"><a href="arquivos.aspx?id=decretos">Decretos Legislativos</a></div>
+<div class="listaMenuVert"><a href="arquivos.aspx?id=parlamentar">Prestação de Contas Parlamentar</a></div>
+<div class="listaMenuVert"><a href="arquivos.aspx?id=projetos">Projetos</a></div>
+<div class="listaMenuVert"><a href="arquivos.aspx?id=audiencias">Audiências Públicas</a></div>
+<div class="listaMenuVert"><a href="arquivos.aspx?id=controle">Controle de Presença dos Parlamentares às Sessões</a></div>
+<div class="listaMenuVert"><a href="arquivos.aspx?id=pautas">Pauta da Sessões Ordinárias</a></div>
+<div class="listaMenuVert"><a href="arquivos.aspx?id=atas">Atas da Sessões</a></div>
+<div class="listaMenuVert"><a href="arquivos.aspx?id=organograma">Organograma Institucional</a></div>
+<div class="listaMenuVert"><a href="arquivos.aspx?id=solicdocumentos">Solicitação da Íntegra de Documentos</a></div>
+<!--
+<div class="listaMenuVert"><a href="rgf.aspx">Lei de Responsabilidade Fiscal</a></div>
+<div class="listaMenuVert"><a href="orcamento.aspx">Orçamento</a></div>
+<div class="listaMenuVert"><a href="leiacessoinf.aspx">Lei de Acesso à Informação</a></div>
+-->
+<div class="listaMenuVert"><a href="webservice.aspx">Web Service</a></div>
+<div class="listaMenuVert"><a href="comousar.aspx">Como Usar</a></div>
+<div class="listaMenuVert"><a href="glossario.aspx">Glossário</a></div>
+<div class="listaMenuVert"><a href="perguntasfrequentes.aspx">Perguntas Frequentes</a></div>
+<!--
+<div class="listaMenuVert"><a href="faleconosco.aspx">Fale Conosco</a></div>
+-->
+<a id="hlkEsic2" href="http://201.59.185.194:8080/esic"><img src="images/e-sic.png" alt="e-sic / Ouvidoria" /></a></td>
+
+    </tr>
+</table>
+
+
+		 
+                </td>
+                <td valign="top" style="height: 394px; padding-left:10px;">
+                    <table border="0" cellpadding="0" cellspacing="0" style="width: 100%">
+                        
+                        <tr>
+                            <td style="height: 20px; " class="linhaMenu">
+                                <table id="UcMenu1_dlMenu" cellspacing="0">
+	<tr>
+		<td>
+        <table>
+            <tr>
+                <td style="width: 8px">
+                </td>
+                <td>
+                    <a id="UcMenu1_dlMenu_lnkMenu_0" href="despesas.aspx"><font face="Tahoma" size="2">Despesas</font></a></td>
+                <td style="width: 8px">
+                </td>
+            </tr>
+        </table>
+    </td><td>
+        <table>
+            <tr>
+                <td style="width: 8px">
+                </td>
+                <td>
+                    <a id="UcMenu1_dlMenu_lnkMenu_1" href="receitas.aspx"><font face="Tahoma" size="2">Receitas</font></a></td>
+                <td style="width: 8px">
+                </td>
+            </tr>
+        </table>
+    </td><td>
+        <table>
+            <tr>
+                <td style="width: 8px">
+                </td>
+                <td>
+                    <a id="UcMenu1_dlMenu_lnkMenu_2" href="arquivos.aspx?id=lrf"><font face="Tahoma" size="2">Lei de Responsabilidade Fiscal</font></a></td>
+                <td style="width: 8px">
+                </td>
+            </tr>
+        </table>
+    </td><td class="mnuLink" bgcolor="#CEE3DE"><font color="DarkBlue">
+        <table>
+            <tr>
+                <td style="width: 8px">
+                </td>
+                <td>
+                    <a id="UcMenu1_dlMenu_lnkMenu_3" href="leiacessoinf.aspx"><font face="Tahoma" size="2">Servidores</font></a></td>
+                <td style="width: 8px">
+                </td>
+            </tr>
+        </table>
+    </font></td>
+	</tr>
+</table>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+        
+    <script language="javascript" src="global.js"></script>
+    <table border="0" cellpadding="1" cellspacing="1" style="width: 100%;" align="center">
+        <tr>
+            <td class="lblTitTopico">
+                &nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="lblTit">
+                Lei de Acesso à Informação</td>
+        </tr>
+        <tr>
+            <td height="10">
+                </td>
+        </tr>
+         <tr>
+            <td class="pnl1">
+                
+                       <ul>
+                            <li><a href="docs/LEI FEDERAL Nº 12.527 DE 18 DE NOVEMBRO DE 2011.pdf" target="_blank">Lei Federal Nº 12.527 de 18 de Novembro de 2011</a></li>
+                            
+                            
+                        </ul>
+                        
+                                <table cellspacing="1" style="width: 100%">
+                                    <tr>
+                                        <td align="center" class="lbltit">
+                                            <span id="ContentPlaceHolder1_Label2">Remuneração dos Servidores por Órgão/Lotação - </span>
+                                            <span id="ContentPlaceHolder1_lblMesRefDet" class="lbltit">FEVEREIRO/2018</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" class="lblsubtit" height="5">
+                                            &nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right">
+                                            <span id="ContentPlaceHolder1_lblObs" class="lbl">Servidores marcados com * receberam no mês algum tipo de atrasado, férias ou 13º salário.</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td height="10">
+                                            <span id="ContentPlaceHolder1_lblOrgaoSel" class="lbl"><b></b></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div>
+	<table class="lbl" cellspacing="0" cellpadding="4" rules="cols" bordercolor="#DEDFDE" id="ContentPlaceHolder1_gvFuncionarios" bgcolor="White" width="100%">
+		<tr align="left" bgcolor="#6BA2A5">
+			<th scope="col"><font color="White"><b><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvFuncionarios&#39;,&#39;Sort$Nome&#39;)"><font color="White">Nome</font></a></b></font></th><th scope="col"><font color="White"><b><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvFuncionarios&#39;,&#39;Sort$Orgao&#39;)"><font color="White">&#211;rg&#227;o/Lota&#231;&#227;o</font></a></b></font></th><th scope="col"><font color="White"><b><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvFuncionarios&#39;,&#39;Sort$CargoFuncao&#39;)"><font color="White">Cargo/Fun&#231;&#227;o</font></a></b></font></th><th align="center" scope="col"><font color="White"><b><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvFuncionarios&#39;,&#39;Sort$CargaHoraria&#39;)"><font color="White">Carga Hor&#225;ria</font></a></b></font></th><th align="right" scope="col"><font color="White"><b><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvFuncionarios&#39;,&#39;Sort$vlrRemuneracaoBruta&#39;)"><font color="White">Remuneração Bruta (A)</font></a></b></font></th><th align="right" scope="col"><font color="White"><b><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvFuncionarios&#39;,&#39;Sort$vlrDescontosObrigatorios&#39;)"><font color="White">Descontos Obrigat&#243;rios (B)</font></a></b></font></th><th align="right" scope="col"><font color="White"><b><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvFuncionarios&#39;,&#39;Sort$vlrBrutoMenosDescObrig&#39;)"><font color="White">Remunera&#231;&#227;o menos Descontos (A - B)</font></a></b></font></th>
+		</tr><tr bgcolor="#F7F6F3">
+			<td><font color="#333333">MARCILIO VIANA DE SOUSA</font></td><td><font color="#333333">COORDENADORIA ADMINISTRATIVA</font></td><td><font color="#333333">SEGURAN&#199;A DE PLENARIO</font></td><td align="center"><font color="#333333">30-H</font></td><td align="right"><font color="#333333">
+                                                            <span id="ContentPlaceHolder1_gvFuncionarios_Label1_0">3.176,45</span>
+                                                            
+                                                        </font></td><td align="right"><font color="#333333">404,41</font></td><td align="right"><font color="#333333">2.772,04</font></td>
+		</tr><tr bgcolor="White">
+			<td><font color="#284775">M&#193;RCIO ANDR&#201; DE SOUZA LIMA</font></td><td><font color="#284775">ASSESSORIA LEGISLATIVA</font></td><td><font color="#284775">CONSULTOR LEGISLATIVO DE GAB. DE VER. - CLG</font></td><td align="center"><font color="#284775">40-H</font></td><td align="right"><font color="#284775">
+                                                            <span id="ContentPlaceHolder1_gvFuncionarios_Label1_1">2.103,98</span>
+                                                            
+                                                        </font></td><td align="right"><font color="#284775">189,35</font></td><td align="right"><font color="#284775">1.914,63</font></td>
+		</tr><tr bgcolor="#F7F6F3">
+			<td><font color="#333333">MARCOS EVANGELISTA DE ARA&#218;JO</font></td><td><font color="#333333">ASSESSORIA LEGISLATIVA</font></td><td><font color="#333333">ASSESSOR DE NIVEL MEDIO DE GAB. DE VER. - ANV</font></td><td align="center"><font color="#333333">30-H</font></td><td align="right"><font color="#333333">
+                                                            <span id="ContentPlaceHolder1_gvFuncionarios_Label1_2">2.103,98</span>
+                                                            
+                                                        </font></td><td align="right"><font color="#333333">189,35</font></td><td align="right"><font color="#333333">1.914,63</font></td>
+		</tr><tr bgcolor="White">
+			<td><font color="#284775">MARCOS JOSE DE LIMA JUNIOR</font></td><td><font color="#284775">ASSESSOR JURIDICO GAB. VER. - AJV</font></td><td><font color="#284775">ASSESSOR JURIDICO DE GAB. DE VER. - AJV</font></td><td align="center"><font color="#284775">40-H</font></td><td align="right"><font color="#284775">
+                                                            <span id="ContentPlaceHolder1_gvFuncionarios_Label1_3">3.900,00</span>
+                                                            
+                                                        </font></td><td align="right"><font color="#284775">594,85</font></td><td align="right"><font color="#284775">3.305,15</font></td>
+		</tr><tr bgcolor="#F7F6F3">
+			<td><font color="#333333">MARGON BARROS DE FIGUEIREDO</font></td><td><font color="#333333">ASSESSOR JURIDICO GAB. VER. - AJV</font></td><td><font color="#333333">ASSESSOR JURIDICO DE GAB. DE VER. - AJV</font></td><td align="center"><font color="#333333">30-H</font></td><td align="right"><font color="#333333">
+                                                            <span id="ContentPlaceHolder1_gvFuncionarios_Label1_4">3.900,00</span>
+                                                            
+                                                        </font></td><td align="right"><font color="#333333">594,85</font></td><td align="right"><font color="#333333">3.305,15</font></td>
+		</tr><tr bgcolor="White">
+			<td><font color="#284775">MARIA BETANIA VALLAD&#195;O DE SOUSA</font></td><td><font color="#284775">ASSESSOR JURIDICO GAB. VER. - AJV</font></td><td><font color="#284775">ASSESSOR JURIDICO DE GAB. DE VER. - AJV</font></td><td align="center"><font color="#284775">40-H</font></td><td align="right"><font color="#284775">
+                                                            <span id="ContentPlaceHolder1_gvFuncionarios_Label1_5">3.900,00</span>
+                                                            
+                                                        </font></td><td align="right"><font color="#284775">537,97</font></td><td align="right"><font color="#284775">3.362,03</font></td>
+		</tr><tr bgcolor="#F7F6F3">
+			<td><font color="#333333">MARIA CRISTINA DA CRUZ</font></td><td><font color="#333333">COORDENADORIA ADMINISTRATIVA</font></td><td><font color="#333333">RECEPCIONISTA</font></td><td align="center"><font color="#333333">30-H</font></td><td align="right"><font color="#333333">
+                                                            <span id="ContentPlaceHolder1_gvFuncionarios_Label1_6">1.842,20</span>
+                                                            
+                                                        </font></td><td align="right"><font color="#333333">165,79</font></td><td align="right"><font color="#333333">1.676,41</font></td>
+		</tr><tr bgcolor="White">
+			<td><font color="#284775">MARIA DOLORES MEDEIROS FERNANDES</font></td><td><font color="#284775">ASSESSORIA LEGISLATIVA</font></td><td><font color="#284775">ASSESSOR DE NIVEL MEDIO DE GAB. DE VER. - ANV</font></td><td align="center"><font color="#284775">30-H</font></td><td align="right"><font color="#284775">
+                                                            <span id="ContentPlaceHolder1_gvFuncionarios_Label1_7">2.103,98</span>
+                                                            
+                                                        </font></td><td align="right"><font color="#284775">189,35</font></td><td align="right"><font color="#284775">1.914,63</font></td>
+		</tr><tr bgcolor="#F7F6F3">
+			<td><font color="#333333">MARIA EDILENE NOBREGA DE SOUZA</font></td><td><font color="#333333">ASSESSOR PARLAMENTAR DE GA. DE VER. - APV</font></td><td><font color="#333333">ASSESSOR PARLAMENTAR  DE GAB. DE VER. - APV</font></td><td align="center"><font color="#333333">40-H</font></td><td align="right"><font color="#333333">
+                                                            <span id="ContentPlaceHolder1_gvFuncionarios_Label1_8">1.113,88</span>
+                                                            
+                                                        </font></td><td align="right"><font color="#333333">89,11</font></td><td align="right"><font color="#333333">1.024,77</font></td>
+		</tr><tr bgcolor="White">
+			<td><font color="#284775">MARIA ELIENE GOMES</font></td><td><font color="#284775">ASSISTENTE DE GABINETE - AGV</font></td><td><font color="#284775">ASSISTENTE DE GABINETE  VER. - AGV</font></td><td align="center"><font color="#284775">40-H</font></td><td align="right"><font color="#284775">
+                                                            <span id="ContentPlaceHolder1_gvFuncionarios_Label1_9">950,40</span>
+                                                            
+                                                        </font></td><td align="right"><font color="#284775">76,03</font></td><td align="right"><font color="#284775">874,37</font></td>
+		</tr><tr bgcolor="#F7F6F3">
+			<td><font color="#333333">MARIA GORETTI DA SILVA</font></td><td><font color="#333333">ASSESSORIA LEGISLATIVA</font></td><td><font color="#333333">CONSULTOR LEGISLATIVO DE GAB. DE VER. - CLG</font></td><td align="center"><font color="#333333">40-H</font></td><td align="right"><font color="#333333">
+                                                            <span id="ContentPlaceHolder1_gvFuncionarios_Label1_10">2.103,98</span>
+                                                            
+                                                        </font></td><td align="right"><font color="#333333">189,35</font></td><td align="right"><font color="#333333">1.914,63</font></td>
+		</tr><tr bgcolor="White">
+			<td><font color="#284775">MARIA JOSIANE DA SILVA BEZERRA </font></td><td><font color="#284775">SECRETARIO (A) DE GABINETE - SGV</font></td><td><font color="#284775">SECRETARIO (A) DE GABINETE DE VER. - SGV</font></td><td align="center"><font color="#284775">40-H</font></td><td align="right"><font color="#284775">
+                                                            <span id="ContentPlaceHolder1_gvFuncionarios_Label1_11">990,12</span>
+                                                            
+                                                        </font></td><td align="right"><font color="#284775">79,20</font></td><td align="right"><font color="#284775">910,92</font></td>
+		</tr><tr bgcolor="#F7F6F3">
+			<td><font color="#333333">MARIA LOPES RICARDO SIM&#213;ES</font></td><td><font color="#333333">ESTAGIARIOS</font></td><td><font color="#333333">ESTAGI&#193;RIO</font></td><td align="center"><font color="#333333">20-H</font></td><td align="right"><font color="#333333">
+                                                            <span id="ContentPlaceHolder1_gvFuncionarios_Label1_12">800,00</span>
+                                                            
+                                                        </font></td><td align="right"><font color="#333333">0,00</font></td><td align="right"><font color="#333333">800,00</font></td>
+		</tr><tr bgcolor="White">
+			<td><font color="#284775">MARLI JOSE MONTEIRO</font></td><td><font color="#284775">COORDENADORIA ADMINISTRATIVA</font></td><td><font color="#284775">ESCRITURARIO</font></td><td align="center"><font color="#284775">30-H</font></td><td align="right"><font color="#284775">
+                                                            <span id="ContentPlaceHolder1_gvFuncionarios_Label1_13">3.017,22</span>
+                                                            
+                                                        </font></td><td align="right"><font color="#284775">390,49</font></td><td align="right"><font color="#284775">2.626,73</font></td>
+		</tr><tr bgcolor="#F7F6F3">
+			<td><font color="#333333">MATHEUS CAVALCANTI CASTRO</font></td><td><font color="#333333">C.C. DIRE&#199;&#195;O, GERENCIA E ASSESSORAMENTO</font></td><td><font color="#333333">ASSESSOR JURIDICO</font></td><td align="center"><font color="#333333">40-H</font></td><td align="right"><font color="#333333">
+                                                            <span id="ContentPlaceHolder1_gvFuncionarios_Label1_14">2.700,00</span>
+                                                            
+                                                        </font></td><td align="right"><font color="#333333">284,48</font></td><td align="right"><font color="#333333">2.415,52</font></td>
+		</tr><tr align="right" bgcolor="#6BA2A5">
+			<td colspan="7"><font color="White" size="1"><b><table>
+				<tr>
+					<td><font color="White" size="1"><b><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvFuncionarios&#39;,&#39;Page$First&#39;)"><font color="White">&lt;&lt;</font></a></b></font></td><td><font color="White" size="1"><b><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvFuncionarios&#39;,&#39;Page$7&#39;)"><font color="White">...</font></a></b></font></td><td><font color="White" size="1"><b><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvFuncionarios&#39;,&#39;Page$8&#39;)"><font color="White">8</font></a></b></font></td><td><font color="White" size="1"><b><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvFuncionarios&#39;,&#39;Page$9&#39;)"><font color="White">9</font></a></b></font></td><td><font color="White" size="1"><b><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvFuncionarios&#39;,&#39;Page$10&#39;)"><font color="White">10</font></a></b></font></td><td><font color="White" size="1"><b><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvFuncionarios&#39;,&#39;Page$11&#39;)"><font color="White">11</font></a></b></font></td><td><font color="White" size="1"><b><span>12</span></b></font></td><td><font color="White" size="1"><b><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvFuncionarios&#39;,&#39;Page$13&#39;)"><font color="White">13</font></a></b></font></td><td><font color="White" size="1"><b><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvFuncionarios&#39;,&#39;Page$14&#39;)"><font color="White">14</font></a></b></font></td><td><font color="White" size="1"><b><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvFuncionarios&#39;,&#39;Page$15&#39;)"><font color="White">15</font></a></b></font></td><td><font color="White" size="1"><b><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvFuncionarios&#39;,&#39;Page$16&#39;)"><font color="White">16</font></a></b></font></td><td><font color="White" size="1"><b><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gvFuncionarios&#39;,&#39;Page$17&#39;)"><font color="White">17</font></a></b></font></td>
+				</tr>
+			</table></b></font></td>
+		</tr>
+	</table>
+</div>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="submit" name="ctl00$ContentPlaceHolder1$btnVoltarFuncionarios" value="&lt; Voltar" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$btnVoltarFuncionarios&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ContentPlaceHolder1_btnVoltarFuncionarios" class="btn" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            
+                    
+            </td>
+        </tr>
+        </table>
+
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+           </tr>
+           <tr>
+                <td class="mnuVert"></td>
+                <td align="center">
+                    <span id="lblUltimaSincronizacao" class="lbl"><font size="1">Última atualização em: 03/07/2022 00:01<br>34.261 acessos</font></span>
+                </td>
+           </tr>
+        </table>
+		</div>
+    </form>
+</body>
+</html>
